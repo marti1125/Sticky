@@ -33,15 +33,12 @@
                 var canvas = document.getElementById("myCanvas");
                 var context = canvas.getContext("2d");
 
-                var img = document.createElement("img");
-                img.src = window.URL.createObjectURL(this.result.blob);
-                var imagePresenter = document.querySelector("#image-presenter");
-                imagePresenter.appendChild(img);
-                imagePresenter.style.display = "block";
-                $("#image-presenter img").css("height","75%")
-                                         .css("width","75%")
-                                         .css("margin","0 auto")
-                                         .css("border","1px solid #000");
+                var img = new Image;
+                img.src = URL.createObjectURL(this.result.blob);
+                img.onload = function() {
+                    context.drawImage(img,0,0);
+                    alert('the image is drawn');
+                }
                 $("#main").css("z-index","0");
                 $("#main").animate({
                   opacity: 0
