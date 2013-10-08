@@ -24,15 +24,15 @@ $(".startover-btn").click(function(){
 
 // Stickers button
 $(".stickers-btn").click(function(){
-  $("#stickers").css("z-index","4");
-  $("#stickers").animate({
+  $("#stickers-screen").css("z-index","4");
+  $("#stickers-screen").animate({
     top: 0
   }, 100);
 
 });
 
 $(".close-btn").click(function(){
-  $("#stickers").animate({
+  $("#stickers-screen").animate({
     top: 600,
     zIndex: 0
   }, 100);
