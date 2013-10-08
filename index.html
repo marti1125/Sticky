@@ -15,11 +15,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-    <link rel="stylesheet" type="text/css" href="css/headers.css">
-    <link rel="stylesheet" type="text/css" href="css/buttons.css">
-    <link rel="stylesheet" type="text/css" href="css/toolbars.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/base.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/headers.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/buttons.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/toolbars.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+
     <title>Sticky</title>
 </head>
 
@@ -32,25 +34,33 @@
         Image goes here
       </div>
 
-      <button class="take-photo-btn">Camera</button>
-      <button class="pick-from-lib-btn">Gallery</button>
-
-
+      <div class="bottom-bar">
+        <!-- <button class="take-photo-btn">Camera</button> -->
+        <button class="pick-from-lib-btn">Gallery</button>
+      </div>
 
     </div>
 
     <div id="canvas-area" class="page">
+
+      <div class="top-bar">
+        <button class="clear-btn">Clear</a>
+      </div>
+
+      <div id="image-presenter"></div>
       <!-- place the photo on a canvas element-->
       <canvas>
-        <div id="image-presenter"></div>
+
       </canvas>
 
       <div class="bottom-bar">
-        <button class="clear-btn">Clear</a>
         <!-- this goes back to the main page -->
-        <a class="start-over-btn">New</a>
+        <button class="start-over-btn">New</button>
+
+        <button class="stickers">Stickers</button>
+
         <!-- this is a modal to save or share? or a slideup -->
-        <a class="save-btn">Save/Share</a>
+        <button class="save-btn">Save/Share</button>
       </div>
     </div>
 
@@ -70,6 +80,7 @@
     <script type="text/javascript" src="js/webapp.js"></script>
     <script type="text/javascript" src="js/offline.js"></script>
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <!--
         Loosely based on fxosstub: https://github.com/Jaxo/fxosstub

@@ -35,6 +35,11 @@
                 var imagePresenter = document.querySelector("#image-presenter");
                 imagePresenter.appendChild(img);
                 imagePresenter.style.display = "block";
+                $("#image-presenter img").css("height","100px")
+                                         .css("width","200px")
+                                         .css("margin","0 auto")
+                                         .css("border","1px solid #000");
+                $("#canvas-area").css('z-index',"3");
             };
 
             pick.onerror = function () { 
