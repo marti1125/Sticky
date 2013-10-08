@@ -68,10 +68,7 @@
     if (record) {
         record.onclick = function () {
             var rec = new MozActivity({
-                name: "record", // Possibly capture in future versions
-                data: {
-                    type: ["image/png", "image/jpg", "image/jpeg"]
-                }
+                name: "record" // Possibly capture in future versions
             });
 
             rec.onsuccess = function () { 
