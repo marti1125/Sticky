@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<!--
+    Exchange the line above for this to enable offline support
+    <html manifest="manifest.appcache">
+
+    Please make your homework before doing this:
+        http://www.alistapart.com/articles/application-cache-is-a-douchebag/
+        http://appcachefacts.info
+
+    This might be necessary to set up on your server, to make sure
+    files are updated when the appcache file itself is:
+        https://github.com/robnyman/Firefox-OS-Boilerplate-App/blob/gh-pages/.htaccess
+ -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/headers.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/toolbars.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Sticky</title>
+</head>
+
+<body>
+
+    <div id="main" class="page">
+
+      <div class="main-image-section">
+        <h1>Sticky</h1>
+        Image goes here
+      </div>
+
+      <button class="take-photo-btn">Camera</button>
+      <button class="pick-from-lib-btn">Gallery</button>
+
+
+
+    </div>
+
+    <div id="canvas-area" class="page">
+      <!-- place the photo on a canvas element-->
+      <canvas>
+        <div id="image-presenter"></div>
+      </canvas>
+
+      <div class="bottom-bar">
+        <button class="clear-btn">Clear</a>
+        <!-- this goes back to the main page -->
+        <a class="start-over-btn">New</a>
+        <!-- this is a modal to save or share? or a slideup -->
+        <a class="save-btn">Save/Share</a>
+      </div>
+    </div>
+
+    <div id="stickers" class="page">
+      <!-- stickers go here and slideup/down-->
+      <div class="top-bar">
+        <a class="close-btn"></a>
+      </div>
+      <div class="main-section"></div>
+      <div class="bottom-bar">
+        <a class="btn-left"><</a>
+        <a class="btn-right">></a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/webapp.js"></script>
+    <script type="text/javascript" src="js/offline.js"></script>
+
+    <!--
+        Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
+    -->
+
+</body>
+</html>

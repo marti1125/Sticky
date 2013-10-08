@@ -1,0 +1,23 @@
+
+.page {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#main {
+  z-index: 3;
+  background: green;
+}
+
+#canvas-area {
+  z-index: 2;
+  background: red;
+}
+
+#stickers {
+  z-index: 1;
+  background: blue;
+}
