@@ -2,10 +2,9 @@
 
 //Canvas screen// // // // // // // //
 
-//var canvas=document.getElementById("myCanvas");
-//var context=canvas.getContext("2d");
-//context.fillStyle="#FFF000";
-//context.fillRect(20,20,150,100);
+// add image to canvas
+
+//
 
 // Clear button
 
@@ -28,6 +27,12 @@ $(".stickers-btn").click(function(){
   $("#stickers-screen").animate({
     top: 0
   }, 100);
+});
+
+$(".sticker-1").click(function(){
+  //alert("test");
+  //add object element to canvas
+
 
 });
 
