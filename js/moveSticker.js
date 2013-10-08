@@ -27,12 +27,30 @@ $(".sticker-1").click(function(){
         },
         touchmove: function (coors) {
             if (this.isDragging) {
-                //context.lineTo(coors.x, coors.y);
-                //context.stroke();
 
+                //create new multiple canvas layers on top
+
+                //http://stackoverflow.com/questions/6787899/combining-two-or-more-canvas-elements-with-some-sort-of-blending
+                //http://stackoverflow.com/questions/3008635/html5-canvas-element-multiple-layers
+
+                // or globalCompositeOperation
+
+                //new canvas and context, canvas2 and ctx2
+
+                //this erases the current bg, but need to do this so there is no trail, so erase then redraw bg
                 context.clearRect(0,0,canvasWidth,canvasHeight);
+                //canvas.width = canvas.width;
+                // Store the current transformation matrix
+                //context.save();
+
+                // Use the identity matrix while clearing the canvas
+                //context.setTransform(1, 0, 0, 1, 0, 0);
+                //context.clearRect(0, 0, canvas.width, canvas.height);
+                //context.restore();
                 // image, x, y, w, h
+                //context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
                 context.drawImage(img,coors.x-120/2,coors.y-120/2,120,120);
+
             }
         },
         touchend: function (coors) {
