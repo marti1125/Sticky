@@ -44,30 +44,33 @@
     <div id="canvas-area" class="page">
 
       <div class="top-bar">
-        <button class="clear-btn">Clear</a>
+        <button class="clear-btn pull-right">Clear</a>
       </div>
 
-      <div id="image-presenter"></div>
-      <!-- place the photo on a canvas element-->
-      <canvas>
 
+      <!-- place the photo on a canvas element-->
+      <canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
       </canvas>
+      <div class="canvas">
+        <div id="image-presenter"></div>
+      </div>
 
       <div class="bottom-bar">
         <!-- this goes back to the main page -->
-        <button class="start-over-btn">New</button>
+        <button class="startover-btn pull-left">New</button>
 
-        <button class="stickers">Stickers</button>
+        <button class="stickers-btn pull-left">Stickers</button>
 
         <!-- this is a modal to save or share? or a slideup -->
-        <button class="save-btn">Save/Share</button>
+        <button class="save-btn pull-right">Save/Share</button>
       </div>
     </div>
 
     <div id="stickers" class="page">
       <!-- stickers go here and slideup/down-->
       <div class="top-bar">
-        <a class="close-btn"></a>
+        <button class="close-btn pull-right">Close</button>
       </div>
       <div class="main-section"></div>
       <div class="bottom-bar">
@@ -81,6 +84,7 @@
     <script type="text/javascript" src="js/offline.js"></script>
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
     <!--
         Loosely based on fxosstub: https://github.com/Jaxo/fxosstub
