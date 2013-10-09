@@ -1,28 +1,39 @@
 // http://stackoverflow.com/questions/15036386/make-image-drawn-on-html5-canvas-draggable-with-javascript
 // http://simonsarris.com/project/canvasdemo/demo2.html
+// http://stackoverflow.com/questions/19100009/dragging-and-resizing-an-image-on-html5-canvas
+// http://simonsarris.com/blog/225-canvas-selecting-resizing-shape
+
+var can3 = document.getElementById('canvas3');
+var ctx3 = can3.getContext('2d');
+
 $(".sticker-1").click(function(){
     //alert("test");
+    var can2 = document.getElementById('canvas2');
+    var ctx2 = can2.getContext('2d');
     //add object element to canvas
     var img = new Image();
     img.onload = function(){
-        context.drawImage(img, 0,0);
+        ctx2.drawImage(img, 0,0, 120,120);
+        ctx3.drawImage(can2, 0, 0);
     };
-    img.src = "http://images.christmastimeclipart.com/images/2/1271716593176_1788/img_1271716593176_17881.jpg";
+    img.src = "images/ex-rocket.jpg";
 
-    var canvas=document.getElementById("myCanvas");
-    var context=canvas.getContext("2d");
-    var canvasOffset=$("#myCanvas").offset();
-    var offsetX=canvasOffset.left;
-    var offsetY=canvasOffset.top;
-    var canvasWidth=canvas.width;
-    var canvasHeight=canvas.height;
+
+
+    //var canvas = document.getElementById("canvas2");
+    //var context = canvas.getContext("2d");
+    var canvasOffset = $("#canvas2").offset();
+    var offsetX = canvasOffset.left;
+    var offsetY = canvasOffset.top;
+    var canvasWidth = can3.width;
+    var canvasHeight = can3.height;
 
     // create a drawer which tracks touch movements
     var drawer = {
         isDragging: false,
         touchstart: function (coors) {
-            context.beginPath();
-            context.moveTo(coors.x, coors.y);
+            ctx3.beginPath();
+            ctx3.moveTo(coors.x, coors.y);
             this.isDragging = true;
         },
         touchmove: function (coors) {
@@ -36,9 +47,9 @@ $(".sticker-1").click(function(){
                 // or globalCompositeOperation
 
                 //new canvas and context, canvas2 and ctx2
-
+                this.el.width = this.canvas.width()
                 //this erases the current bg, but need to do this so there is no trail, so erase then redraw bg
-                context.clearRect(0,0,canvasWidth,canvasHeight);
+                //ctx3.clearRect(0,0,canvasWidth,canvasHeight);
                 //canvas.width = canvas.width;
                 // Store the current transformation matrix
                 //context.save();
@@ -49,7 +60,7 @@ $(".sticker-1").click(function(){
                 //context.restore();
                 // image, x, y, w, h
                 //context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-                context.drawImage(img,coors.x-120/2,coors.y-120/2,120,120);
+                ctx3.drawImage(img,coors.x-120/2,coors.y-120/2,120,120);
 
             }
         },
@@ -119,15 +130,15 @@ $(".sticker-1").click(function(){
 
     // attach the touchstart, touchmove, touchend event listeners.
     if(touchAvailable){
-        canvas.addEventListener('touchstart', draw, false);
-        canvas.addEventListener('touchmove', draw, false);
-        canvas.addEventListener('touchend', draw, false);
+        can3.addEventListener('touchstart', draw, false);
+        can3.addEventListener('touchmove', draw, false);
+        can3.addEventListener('touchend', draw, false);
     }
     // attach the mousedown, mousemove, mouseup event listeners.
     else {
-        canvas.addEventListener('mousedown', draw, false);
-        canvas.addEventListener('mousemove', draw, false);
-        canvas.addEventListener('mouseup', draw, false);
+        can3.addEventListener('mousedown', draw, false);
+        can3.addEventListener('mousemove', draw, false);
+        can3.addEventListener('mouseup', draw, false);
     }
 
     // prevent elastic scrolling

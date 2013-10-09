@@ -32,12 +32,13 @@
             pick.onsuccess = function () { 
                 var canvas = document.getElementById("myCanvas");
                 var context = canvas.getContext("2d");
-                context.globalCompositeOperation = 'destination-over';
+                //context.globalCompositeOperation = 'destination-over';
 
                 var img = new Image;
                 img.src = URL.createObjectURL(this.result.blob);
                 img.onload = function() {
                     context.drawImage(img,0,0);
+                    ctx3.drawImage(canvas, 0, 0);
                     //alert('the image is drawn');
                 }
                 $("#main").css("z-index","0");
