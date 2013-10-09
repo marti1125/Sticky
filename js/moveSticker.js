@@ -11,13 +11,21 @@
 //var ctx3 = can3.getContext('2d');
 
 $(".sticker-1").click(function(){
-    alert("add sticker");
+    //alert("add sticker");
+    //move down the modal
+    $("#stickers-screen").animate({
+      top: 600,
+      zIndex: 0
+    }, 100);
+
+    //add sticker to screen
     var sticker = document.getElementById('sticker');
     $('#sticker').show();
     $('#sticker').draggable({
       containment: "#canvas",
       scroll: false
     });
+    //$( "#sticker" ).resizable();
 
 
 });
