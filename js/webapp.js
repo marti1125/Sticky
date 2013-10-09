@@ -30,15 +30,17 @@
 
             // add the image to the HTML canvas and move up that page
             pick.onsuccess = function () { 
-                var canvas = document.getElementById("myCanvas");
+                var canvas = document.getElementById("canvas");
                 var context = canvas.getContext("2d");
+                //var background = document.getElementById('background');
+                //var ballon = document.getElementById('ballon')
+                //context.drawImage(background, 0, 0, 120, 120);
                 //context.globalCompositeOperation = 'destination-over';
 
                 var img = new Image;
                 img.src = URL.createObjectURL(this.result.blob);
                 img.onload = function() {
                     context.drawImage(img,0,0);
-                    ctx3.drawImage(canvas, 0, 0);
                     //alert('the image is drawn');
                 }
                 $("#main").css("z-index","0");

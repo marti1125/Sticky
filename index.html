@@ -25,46 +25,31 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
 
+    <script type="text/javascript" src="js/app.js"></script>
+
     <title>Sticky</title>
 
-    <style type="text/css" media="screen">
-      #canvas {
-
-      }
-      #background {
-          display: none;
-      }
-      #ballon {
-          position: absolute;
-          top: 50px;
-          left: 50px;
-          cursor: move;
-          opacity: 0.5;
-      }
-
-    </style>
-
     <script type="text/javascript" charset="utf-8">
+
       $(document).ready(function() {
+
           var d_canvas = document.getElementById('canvas');
           var context = d_canvas.getContext('2d');
-          var background = document.getElementById('background');
-          var ballon = document.getElementById('ballon')
-          context.drawImage(background, 0, 0, 120, 120);
 
-          $('#ballon').draggable();
-
-          $('#draw').click(function() {
-              var $ballon = $('#ballon'),
+          // Save/Share button
+          $('.save-btn').click(function() {
+              //alert("tset");
+              var $sticker = $('#sticker'),
                   $canvas = $('#canvas');
-              var ballon_x = $ballon.offset().left - $canvas.offset().left,
-                  ballon_y = $ballon.offset().top - $canvas.offset().top;
+              var sticker_x = $sticker.offset().left - $canvas.offset().left,
+                  sticker_y = $sticker.offset().top - $canvas.offset().top;
 
-              context.drawImage(ballon, ballon_x, ballon_y);
+              context.drawImage(sticker, sticker_x, sticker_y);
 
-              $ballon.hide();
-              $(this).attr('disabled', 'disabled');
+              $sticker.hide();
+              //$(this).attr('disabled', 'disabled');
           });
+
       });
     </script>
 
@@ -92,12 +77,9 @@
         <button class="clear-btn pull-right">Clear</a>
       </div>
 
-      <canvas id="canvas" width="180" height="120" ></canvas>
+      <canvas id="canvas" width="300" height="300" ></canvas>
 
-      <img src="http://i.imgur.com/PWSOy.jpg" id="background" />
-      <img src="http://i.imgur.com/6l6v2.png" id="ballon" />
-
-      <button id="draw">Draw</button>
+      <img src="images/ex-rocket.jpg" id="sticker" />
 
       <!-- place the photo on a canvas element-->
       <!-- <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
@@ -174,11 +156,8 @@
     <script type="text/javascript" src="js/offline.js"></script>
     <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="js/boxes2.js"></script> -->
-    <!-- <script type="text/javascript" src="js/shapes.js"></script> -->
-    <script type="text/javascript" src="js/moveSticker.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
 
+    <script type="text/javascript" src="js/moveSticker.js"></script>
 
 
     <!--
