@@ -26,35 +26,43 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="js/jquery.touchy.min.js"></script>
 
+
     <script type="text/javascript" src="js/app.js"></script>
 
     <title>Sticky</title>
 
     <script type="text/javascript" charset="utf-8">
 
-      $(document).ready(function() {
 
-          $( "#resizable" ).resizable();
-
-          var d_canvas = document.getElementById('canvas');
-          var context = d_canvas.getContext('2d');
-
-          // Save/Share button
-          $('.save-btn').click(function() {
-              //alert("tset");
-              var $sticker = $('#sticker'),
-                  $canvas = $('#canvas');
-              var sticker_x = $sticker.offset().left - $canvas.offset().left,
-                  sticker_y = $sticker.offset().top - $canvas.offset().top;
-
-              context.drawImage(sticker, sticker_x, sticker_y);
-
-              $sticker.hide();
-              //$(this).attr('disabled', 'disabled');
-          });
-
-      });
     </script>
+
+    <style>
+    body {
+    background: whitesmoke
+    }
+    #square {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -100px;
+    width: 200px;
+    height: 200px;
+    color: deeppink;
+    font: 700 32px sans-serif;
+    text-align: center;
+    line-height: 200px;
+    border: 1px solid deeppink;
+    background: url('images/ex-rocket.jpg');
+    box-shadow: 0 0 10px black
+    }
+    .false #square {
+    text-indent: -99999px;
+    background: url(qr.png)
+    }
+    .touching {
+    opacity: 0.8
+    }
+    </style>
 
 </head>
 
@@ -79,10 +87,33 @@
       <div class="top-bar">
         <button class="clear-btn pull-right">Clear</a>
       </div>
+      <img src="images/ex-rocket.jpg" id="sticker" />
+      <div id="square"></div>
+
+      <input type="checkbox" id="draggable" checked="checked">
+      <label for='draggable'>Draggable</label>
+      <input type="checkbox" id="rotatable" checked="checked">
+      <label for='rotatable'>Rotatable</label>
+      <input type="checkbox" id="scalable" checked="checked">
+      <label for='scalable'>Scalable</label>
+      <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+      <script src='js/jquery.touch.js'></script>
+      <script>
+              document.documentElement.className += "ontouchend" in document;
+              var square = $('#square').touch();
+
+              var setOptions = function(id) {
+                  square.data('plugin_touch').options[id] = $("#" + id).prop("checked");
+              };
+
+              $('input').on('change', function() {
+                  setOptions(this.id);
+              });
+          </script>
 
       <canvas id="canvas" width="300" height="300" ></canvas>
 
-      <img src="images/ex-rocket.jpg" id="sticker" />
+
 
       <!-- place the photo on a canvas element-->
       <!-- <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
@@ -161,7 +192,24 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="js/moveSticker.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      // Save/Share button
+      var d_canvas = document.getElementById('canvas');
+      var context = d_canvas.getContext('2d');
 
+      $('.save-btn').click(function() {
+          alert("tset");
+          var $sticker = $('#square'),
+              $canvas = $('#canvas');
+          var sticker_x = $sticker.offset().left - $canvas.offset().left,
+              sticker_y = $sticker.offset().top - $canvas.offset().top;
+
+          context.drawImage(sticker, sticker_x, sticker_y);
+
+          $sticker.hide();
+          //$(this).attr('disabled', 'disabled');
+      });
+    </script>
 
     <!--
         Loosely based on fxosstub: https://github.com/Jaxo/fxosstub

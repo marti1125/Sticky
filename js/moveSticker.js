@@ -13,18 +13,18 @@
 $(".sticker-1").click(function(){
     //alert("add sticker");
     //move down the modal
-    $("#stickers-screen").animate({
-      top: 600,
-      zIndex: 0
-    }, 100);
+    //$("#stickers-screen").animate({
+      //top: 600,
+      //zIndex: 0
+    //}, 100);
 
     //add sticker to screen
-    var sticker = document.getElementById('sticker');
-    $('#sticker').show();
-    $('#sticker').draggable({
-      containment: "#canvas",
-      scroll: false
-    });
+    //var sticker = document.getElementById('balloon');
+    //$('#sticker').show();
+    //$('#sticker').draggable({
+      //containment: "#canvas",
+      //scroll: false
+    //});
     //$( "#sticker" ).resizable();
 
 
