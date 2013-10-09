@@ -47,7 +47,7 @@
 
           //add sticker to screen
           var sticker = document.getElementById('resizable');
-          //$('#resizable').hide();
+          $('#resizable').hide();
           $( "#resizable" ).draggable({
             containment: "#canvas",
             scroll: false
@@ -80,8 +80,16 @@
 
 
           // Save/Share button
-          $('.save-btn').click(function() {
-              alert("tset");
+          //this should move up a button list with
+          //Save to Gallery
+          //Clear
+          //Cancel
+          $('#save-btn').click(function() {
+              $(".overlay").remove();
+              $( "#done-panel" ).animate({
+                  bottom: "-300"
+              }, 200);
+              //alert("tset");
               var $sticker = $('#resizable'),
                   $canvas = $('#canvas');
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
@@ -100,36 +108,9 @@
 
 <body>
 
-    <div id="main" class="page">
-
-      <div class="main-image-section">
-        <h1>Sticky</h1>
-        Image goes here
-      </div>
-
-      <div class="bottom-bar">
-        <!-- <button class="take-photo-btn">Camera</button> -->
-
-      </div>
-
-    </div>
-
     <div id="canvas-area" class="page">
-
-      <div class="top-bar">
-        <button class="clear-btn pull-right">Clear</a>
-      </div>
-
-      <canvas id="canvas" width="300" height="300" >
-
-
-
-      </canvas>
-
-      <img src="images/ex-rocket.jpg" id="resizable" />
-
-
-
+      <canvas id="canvas" width="300" height="300" ></canvas>
+      <img src="images/sunglasses.png" id="resizable" />
       <!-- place the photo on a canvas element-->
       <!-- <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
         Your browser does not support the HTML5 canvas tag.
@@ -141,7 +122,6 @@
       <!-- <div class="canvas">
         <div id="image-presenter"></div>
       </div> -->
-
       <div class="bottom-bar">
         <button class="pick-from-lib-btn pull-left">New</button>
         <!-- this goes back to the main page -->
@@ -150,7 +130,18 @@
         <button class="stickers-btn pull-left">Stickers</button>
 
         <!-- this is a modal to save or share? or a slideup -->
-        <button class="save-btn pull-right">Save/Share</button>
+        <button class="done-btn pull-right">Done</button>
+      </div>
+    </div>
+
+
+
+
+    <div id="done-panel" class="panel panel-default">
+      <div class="panel-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="save-btn" >Save to Gallery</button>
+        <button type="button" class="btn btn-default btn-lg btn-block" id="btn-clear">Clear</button>
+        <button type="button" class="btn btn-default btn-lg btn-block" id="btn-cancel" href="">Cancel</button>
       </div>
     </div>
 
@@ -163,7 +154,7 @@
         <div class="row">
           <div class="col-xs-4">
             <div class="sticker sticker-1">
-              sticker 1
+              <img src="images/sunglasses.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
           <div class="col-xs-4">

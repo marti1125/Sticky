@@ -14,9 +14,8 @@ $(".sticker-1").click(function(){
     //alert("add sticker");
     //move down the modal
     $("#stickers-screen").animate({
-      top: 600,
-      zIndex: 0
-    }, 100);
+      top: 1000
+    }, 200);
 
     $('#resizable').show();
     //$( "#sticker" ).resizable();

@@ -23,10 +23,9 @@ $(document).ready(function() {
 
       // Stickers button
       $(".stickers-btn").click(function(){
-        $("#stickers-screen").css("z-index","4");
         $("#stickers-screen").animate({
           top: 0
-        }, 100);
+        }, 200);
       });
 
       $(".sticker-1").click(function(){
@@ -38,10 +37,38 @@ $(document).ready(function() {
 
       $(".close-btn").click(function(){
         $("#stickers-screen").animate({
-          top: 600,
-          zIndex: 0
-        }, 100);
+          top: 1000
+        }, 200);
         //$("#stickers").css("z-index","0");
+      });
+
+      $(".done-btn").click(function(){
+        $("#canvas-area").append('<div class="overlay" style="position: absolute; top: 0; left: 0; background: rgba(0,0,0,0.5); width: 100%; height: 100%"></div');
+        $( "#done-panel" ).animate({
+            bottom: "-20"
+          }, 200);
+      });
+
+
+
+      $("#btn-clear").click(function(){
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        $("#resizable").hide();
+        $(".overlay").remove();
+        $( "#done-panel" ).animate({
+            bottom: "-300"
+        }, 200);
+
+      });
+
+      $("#btn-cancel").click(function(){
+        $(".overlay").remove();
+        $( "#done-panel" ).animate({
+            bottom: "-300"
+        }, 200);
       });
 
 
