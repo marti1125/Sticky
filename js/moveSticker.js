@@ -14,7 +14,10 @@ $(".sticker-1").click(function(){
     alert("add sticker");
     var sticker = document.getElementById('sticker');
     $('#sticker').show();
-    $('#sticker').draggable();
+    $('#sticker').draggable({
+      containment: "#canvas",
+      scroll: false
+    });
 
 
 });
