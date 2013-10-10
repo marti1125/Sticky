@@ -38,13 +38,33 @@
 
     <title>Sticky</title>
 
+    <style type="text/css" media="screen">
+      #target3 {
+      width: 160px;
+      height: 90px;
+      padding: 0;
+      //border: 1px solid #862dde;
+      }
+      #target3 img {
+      width: 100%;
+      height: 100%;
+      }
+    </style>
+
 
 
     <script type="text/javascript" charset="utf-8">
 
       $(document).ready(function() {
 
-          $('#target3').draggable().resizable().rotatable();
+          $('#target3').draggable({
+            containment: "#canvas",
+            scroll: false
+          });
+          $('#target3').resizable({
+            containment: "#canvas"
+          });
+          $('#target3').rotatable();
 
           // intro screen
           $("#intro-screen").click(function(){
@@ -128,9 +148,8 @@
 
     <div id="canvas-area" class="page">
 
-      <div id="target3" style="width: 250px; border: 1px solid #862dde; padding: 20px; padding-right: 40px">
-        Drag me, resize me and rotate me!
-
+      <div id="target3" >
+        <img src="images/stickers/fox-mask.png" />
       </div>
 
       <canvas id="canvas" width="300" height="300" ></canvas>
