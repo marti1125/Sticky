@@ -21,16 +21,20 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/toolbars.css"> -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
     <link href="http://code.jquery.com/ui/1.8.21/themes/base/jquery-ui.css" rel="stylesheet">
     <link href="http://code.jquery.com/ui/1.8.21/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <!-- prerequisites -->
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="js/jquery.touchy.min.js"></script>
 
-
     <script type="text/javascript" src="js/app.js"></script>
+
+    <script src="http://godswearhats.com/jquery-ui-rotatable/jquery.ui.rotatable.js"></script>
+    <!-- this is small and will allow you to override look/feel of handle -->
+    <link rel="stylesheet" href="http://godswearhats.com/jquery-ui-rotatable/jquery.ui.rotatable.css">
 
     <title>Sticky</title>
 
@@ -39,6 +43,8 @@
     <script type="text/javascript" charset="utf-8">
 
       $(document).ready(function() {
+
+          $('#target3').draggable().resizable().rotatable();
 
           // intro screen
           $("#intro-screen").click(function(){
@@ -121,6 +127,12 @@
     </div>
 
     <div id="canvas-area" class="page">
+
+      <div id="target3" style="width: 250px; border: 1px solid #862dde; padding: 20px; padding-right: 40px">
+        Drag me, resize me and rotate me!
+
+      </div>
+
       <canvas id="canvas" width="300" height="300" ></canvas>
       <img src="images/stickers/fox-mask.png" id="resizable" />
       <div class="bottom-bar">
