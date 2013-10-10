@@ -133,7 +133,13 @@
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
 
-              context.drawImage(sticker, sticker_x, sticker_y);
+              var w = $('#resizable').width();
+              var h = $('#resizable').height();
+              //get rotate value too
+              //http://stackoverflow.com/questions/8270612/get-element-moz-transformrotate-value-in-jquery
+
+              // get current resizable x, y, h and w
+              context.drawImage(sticker, sticker_x, sticker_y, w, h);
 
               $sticker.hide();
               //$(this).attr('disabled', 'disabled');
