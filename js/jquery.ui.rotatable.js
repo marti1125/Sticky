@@ -1,27 +1,25 @@
 (function( $, undefined ) {
-		
+
 $.widget("ui.rotatable", $.ui.mouse, {
-	
+
 	options: {
 		handle: false
 	},
-	
+
 	handle: function(handle) {
 		if (handle === undefined) {
 			return this.options.handle;
 		}
 		this.options.handle = handle;
 	},
-	
+
 	_create: function() {
-		if (!this.options.handle) {
-			this.options.handle = $(document.createElement('div'));
-		}
-		var handle = this.options.handle;
+		var handle = $(document.createElement('div'));
 		handle.addClass('ui-rotatable-handle');
 		handle.draggable({ helper: 'clone', start: dragStart });
 		handle.on('mousedown', startRotate);
 		handle.appendTo(this.element);
+		this.options.handle = handle;
 		this.element.data('angle', 0);
 	}
 });
@@ -62,15 +60,15 @@ function rotateElement(event) {
 	var yFromCenter = event.pageY - center[1];
 	var mouseAngle = Math.atan2(yFromCenter, xFromCenter);
 	var rotateAngle = mouseAngle - mouseStartAngle + elementStartAngle;
-	
+
 	performRotation(elementBeingRotated, rotateAngle);
 	elementBeingRotated.data('angle', rotateAngle);
-	
+
 	return false;
 };
 
 function startRotate(event) {
-	elementBeingRotated = $(this).parent(); 
+	elementBeingRotated = $(this).parent();
 	var center = getElementCenter(elementBeingRotated);
 	var startXFromCenter = event.pageX - center[0];
 	var startYFromCenter = event.pageY - center[1];
@@ -78,7 +76,7 @@ function startRotate(event) {
 	elementStartAngle = elementBeingRotated.data('angle');
 
 	$(document).on('mousemove', rotateElement);
-	
+
 	return false;
 };
 
