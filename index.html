@@ -39,16 +39,7 @@
     <title>Sticky</title>
 
     <style type="text/css" media="screen">
-      #target3 {
-      width: 160px;
-      height: 90px;
-      padding: 0;
-      //border: 1px solid #862dde;
-      }
-      #target3 img {
-      width: 100%;
-      height: 100%;
-      }
+
 
       #nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
           width: 10px;
@@ -96,11 +87,27 @@
 
       $(document).ready(function() {
 
-          $('#target3').draggable({
+
+
+          // intro screen
+          $("#intro-screen").click(function(){
+            $("#intro-screen").fadeOut(300);
+          })
+          // end intro screen
+
+
+          var d_canvas = document.getElementById('canvas');
+          var context = d_canvas.getContext('2d');
+          //add sticker to screen
+          var sticker = document.getElementById('rezimg');
+
+
+          $('#resizable').hide();
+          $('#resizable').draggable({
             containment: "#canvas",
             scroll: false
           });
-          $('#target3').resizable({
+          $('#resizable').resizable({
             containment: "#canvas",
             handles: {
                     'nw': '#nwgrip',
@@ -113,64 +120,15 @@
                     'w': '#wgrip'
                 }
           });
-          $('#target3').rotatable();
+          $('#resizable').rotatable();
 
-          // intro screen
-          $("#intro-screen").click(function(){
-            $("#intro-screen").fadeOut(300);
-          })
-          // end intro screen
-
-
-          var d_canvas = document.getElementById('canvas');
-          var context = d_canvas.getContext('2d');
-
-          //add sticker to screen
-          var sticker = document.getElementById('resizable');
-          $('#resizable').hide();
-          $( "#resizable" ).draggable({
-            containment: "#canvas",
-            scroll: false
-          });
-
-          n = 0;
-          $("#resizable").click(function(){
-            //alert("asdf");
-            if (n == 0) {
-
-              $("#resizable").resizable({
-                containment: "#canvas"
-              });
-              //$("#resizable").draggable();
-              n = 1;
-              //alert(n);
-            }
-
-            else if (n == 1){
-              n = 0;
-              //alert(n);
-              $("#resizable").draggable({
-                containment: "#canvas",
-                scroll: false
-              });
-              $('#resizable').resizable('destroy');
-            }
-
-          });
-
-
-          // Save/Share button
-          //this should move up a button list with
-          //Save to Gallery
-          //Clear
-          //Cancel
           $('#save-btn').click(function() {
               $(".overlay").remove();
               $( "#done-panel" ).animate({
                   bottom: "-300"
               }, 200);
               //alert("tset");
-              var $sticker = $('#resizable'),
+              var $sticker = $("#resizable"),
                   $canvas = $('#canvas');
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
@@ -197,8 +155,10 @@
 
     <div id="canvas-area" class="page">
 
-      <div id="target3" >
-        <img src="images/stickers/fox-mask.png" />
+      <canvas id="canvas" width="300" height="300" ></canvas>
+
+      <div id="resizable" >
+        <img src="images/stickers/fox-mask.png" id="rezimg"/>
         <div class="ui-resizable-handle ui-resizable-nw" id="nwgrip"></div>
         <div class="ui-resizable-handle ui-resizable-ne" id="negrip"></div>
         <div class="ui-resizable-handle ui-resizable-sw" id="swgrip"></div>
@@ -209,8 +169,7 @@
         <div class="ui-resizable-handle ui-resizable-w" id="wgrip"></div>
       </div>
 
-      <canvas id="canvas" width="300" height="300" ></canvas>
-      <img src="images/stickers/fox-mask.png" id="resizable" />
+      <!-- <img src="images/stickers/fox-mask.png" id="resizable" /> -->
       <div class="bottom-bar">
         <button class="btn btn-default pick-from-lib-btn pull-left">New</button>
         <button class="btn btn-primary stickers-btn pull-left">Stickers</button>
