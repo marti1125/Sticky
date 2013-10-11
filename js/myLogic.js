@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-        var zoom = new ZoomView('#zoom','#zoom :first');
+    var zoom = new ZoomView('#zoom','#zoom :first');
 		var zoom2 = new ZoomView('#zoom2','#zoom2 :first');
 		var zoom3 = new ZoomView('#zoom3','#zoom3 :first');
     });
@@ -9,15 +9,15 @@ $(function(){
     /**
     * Inspired by Jesse Guardiani - May 1st, 2012
     */
-	
+
 	var zIndexBackup = 10;
-	
+
     function DragView(target) {
       this.target = target[0];
       this.drag = [];
       this.lastDrag = {};
 
-      
+
       this.WatchDrag = function()
       {
         if(!this.drag.length) {
@@ -38,6 +38,12 @@ $(function(){
 
           this.drag[d].el.style.left = left +'px';
           this.drag[d].el.style.top = top +'px';
+
+          //set left drag boundary
+          if(this.drag[d].el.style.left == "20px"){
+            //alert("touch");
+          }
+
         }
       }
 
@@ -45,23 +51,23 @@ $(function(){
         var touches = event.originalEvent.touches || [event.originalEvent];
         for(var t=0; t<touches.length; t++) {
           var el = touches[t].target.parentNode;
-		  
+
 		  if(el.className.search('polaroid') > -1){
-			  	
+
 				 el = touches[t].target.parentNode.parentNode;
 		  }
 			el.style.zIndex = zIndexBackup + 1;
 			zIndexBackup = zIndexBackup +1;
-			
+
           if(el && el == this.target) {
 			$(el).children().toggleClass('upSky');
             this.lastDrag = {
               el: el,
               pos: event.touches[t]
             };
-            return; 
+            return;
           }
-		  
+
         }
       }
 
@@ -74,7 +80,7 @@ $(function(){
 		if(el.className.search('polaroid') > -1){
 				 el = touches[t].target.parentNode.parentNode;
 		  }
-		  
+
           if(el && el == this.target) {
             this.drag.push({
               el: el,
@@ -89,12 +95,12 @@ $(function(){
         	var touches = event.originalEvent.touches || [event.originalEvent];
 		 	for(var t=0; t<touches.length; t++) {
           			var el = touches[t].target.parentNode;
-		  
+
 		  			if(el.className.search('polaroid') > -1){
 				 			el = touches[t].target.parentNode.parentNode;
 		  			}
 					$(el).children().toggleClass('upSky');
-			
+
 		  }
       }
     }
@@ -138,9 +144,9 @@ $(function(){
 
         //Translate Origin variables
 
-        var tch1 = 0, 
-            tch2 = 0, 
-            tcX = 0, 
+        var tch1 = 0,
+            tch2 = 0,
+            tcX = 0,
             tcY = 0,
             toX = 0,
             toY = 0,
@@ -168,7 +174,7 @@ $(function(){
 
         container.bind("transform", function(event) {
             scaleFactor = previousScaleFactor * event.scale;
-			
+
             scaleFactor = Math.max(MIN_ZOOM, Math.min(scaleFactor, MAX_ZOOM));
             transform(event);
         });
@@ -202,7 +208,7 @@ $(function(){
                 transformOrigin: cssOrigin,
             });
 
-            
+
         }
 
     }

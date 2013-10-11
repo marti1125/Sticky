@@ -17,7 +17,8 @@ $(".sticker-1").click(function(){
       top: 1000
     }, 200);
 
-    $('#resizable').show();
+    $("#newimage").show();
+    //$('#resizable').show();
     //$( "#sticker" ).resizable();
 
 
