@@ -109,9 +109,6 @@
               return (angle < 0) ? angle +=360 : angle;
           }
 
-
-
-
           // intro screen
           $("#intro-screen").click(function(){
             $("#intro-screen").fadeOut(300);
@@ -122,7 +119,7 @@
           var d_canvas = document.getElementById('canvas');
           var context = d_canvas.getContext('2d');
           //add sticker to screen
-          var sticker = document.getElementById('rezimg');
+          var sticker = document.getElementById('newimage');
 
 
           $('#resizable').hide();
@@ -151,16 +148,16 @@
                   bottom: "-300"
               }, 200);
               //alert("tset");
-              var $sticker = $("#resizable"),
+              var $sticker = $("#newimage"),
                   $canvas = $('#canvas');
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
 
-              var w = $('#resizable').width();
-              var h = $('#resizable').height();
+              var w = $('#newimage').width();
+              var h = $('#newimage').height();
               //get rotate value too
-              angle1 = getRotationDegrees($('#resizable'));
-              alert(angle1);
+              angle1 = getRotationDegrees($('#newimage'));
+              //alert(angle1);
               //http://stackoverflow.com/questions/8270612/get-element-moz-transformrotate-value-in-jquery
               //http://creativejs.com/2012/01/day-10-drawing-rotated-images-into-canvas/
 
@@ -172,7 +169,7 @@
               //context.translate(64, 64);
 
               // rotate around this point
-              context.rotate(0.5);
+              //context.rotate(0.5);
 
               // get current resizable x, y, h and w
               context.drawImage(sticker, sticker_x, sticker_y, w, h);
@@ -197,11 +194,9 @@
 
     <div id="canvas-area" class="page">
 
-      <div id="zoomwrapper">
-          <div id="zoom" class="zoomProps" >
-              <div class="polaroid">
-                  <img src="pic1.jpg" alt="" width="100" height="100" />
-              </div>
+      <div id="zoom" class="zoomProps" >
+          <div class="polaroid">
+              <img src="pic1.jpg" alt="" width="100" height="100" id="newimage"/>
           </div>
       </div>
 

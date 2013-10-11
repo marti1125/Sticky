@@ -4,11 +4,11 @@
     position: absolute;
   }
 
-  #zoomwrapper {
+/*  #zoomwrapper {
     height: 377px;
     width: 600px;
     overflow: hidden;
-  }
+  }*/
 
   .polaroid {
     background: #eee;
