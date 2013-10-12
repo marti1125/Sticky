@@ -92,11 +92,12 @@
               var h = $('#newimage').height();
 
               //apply new scale to the image
+              // http://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery
               function matrixToArray(matrix) {
                   return matrix.substr(7, matrix.length - 8).split(', ');
               }
               matrix = matrixToArray($(".polaroid").css("transform"));
-              alert(matrix[3]);
+              //alert(matrix[3]);
               var currentScale = matrix[3];
               context.scale(currentScale, currentScale);
 
@@ -117,7 +118,12 @@
               //context.rotate(0.5);
 
               // get current resizable x, y, h and w
-              context.drawImage(sticker, sticker_x, sticker_y, w, h);
+              //set the x and y to the #zoom left and top
+              var zoomLeft = $('#zoom').css("left");
+              var zoomTop = $('#zoom').css("top");
+              alert(zoomLeft);
+
+              context.drawImage(sticker, zoomLeft, zoomTop, w, h);
 
               $sticker.hide();
               //$(this).attr('disabled', 'disabled');
