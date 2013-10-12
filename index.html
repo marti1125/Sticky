@@ -82,13 +82,23 @@
                   bottom: "-300"
               }, 200);
               //alert("tset");
-              var $sticker = $("#newimage"),
+              var $sticker = $("#zoom"),
                   $canvas = $('#canvas');
+
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
 
               var w = $('#newimage').width();
               var h = $('#newimage').height();
+
+              //apply new scale to the image
+              function matrixToArray(matrix) {
+                  return matrix.substr(7, matrix.length - 8).split(', ');
+              }
+              matrix = matrixToArray($(".polaroid").css("transform"));
+              alert(matrix[3]);
+              var currentScale = matrix[3];
+              context.scale(currentScale, currentScale);
 
               //get rotate value too
               angle1 = getRotationDegrees($('#newimage'));
@@ -107,7 +117,7 @@
               //context.rotate(0.5);
 
               // get current resizable x, y, h and w
-              context.drawImage(sticker, sticker_x, sticker_y - 10, w, h-20);
+              context.drawImage(sticker, sticker_x, sticker_y, w, h);
 
               $sticker.hide();
               //$(this).attr('disabled', 'disabled');

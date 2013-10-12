@@ -208,7 +208,7 @@ $(function(){
                 transformOrigin: cssOrigin,
             });
 
-
+            //alert(scaleFactor);
         }
 
     }

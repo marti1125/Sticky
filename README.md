@@ -10,7 +10,7 @@ This is a simple sticker app.
 
 ## To Do
 
-* set boundaries for dragging the sticker on canvas
+* set boundaries for dragging the sticker on canvas or a Mask
 * get proportions correct after saving sticker to canvas
 * make sure bg picture proportions are correct on canvas
 * set rotation for sticker
