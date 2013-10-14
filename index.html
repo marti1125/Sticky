@@ -25,21 +25,21 @@
     <link href="http://code.jquery.com/ui/1.8.21/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
     <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery-ui.min.js"></script> -->
     <!-- prerequisites -->
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
-    <script src="js/jquery.touchy.min.js"></script>
+    <!-- <script src="js/jquery.ui.touch-punch.min.js"></script> -->
+    <!-- <script src="js/jquery.touchy.min.js"></script> -->
 
     <script type="text/javascript" src="js/app.js"></script>
 
-    <script src="js/jquery.ui.rotatable.js"></script>
+    <!-- <script src="js/jquery.ui.rotatable.js"></script> -->
 
     <script src="js/hammer.js"></script>
     <script src="js/jquery.hammer.js"></script>
     <script src="js/myLogic.js"></script>
 
     <!-- this is small and will allow you to override look/feel of handle -->
-    <link rel="stylesheet" href="css/jquery.ui.rotatable.css">
+    <!-- <link rel="stylesheet" href="css/jquery.ui.rotatable.css"> -->
     <link href='css/hammer-style.css' rel='stylesheet' type='text/css'>
 
     <title>Sticky</title>
@@ -74,6 +74,12 @@
           var context = d_canvas.getContext('2d');
           var sticker = document.getElementById('newimage');
 
+          d_canvas.width  = 320;
+          d_canvas.height = 520;
+          d_canvas.style.width  = '320px';
+          d_canvas.style.height = '520px';
+
+
           $("#newimage").hide();
 
           $('#save-btn').click(function() {
@@ -81,49 +87,40 @@
               $( "#done-panel" ).animate({
                   bottom: "-300"
               }, 200);
-              //alert("tset");
-              var $sticker = $("#zoom"),
+
+              var $sticker = $("#newimage"),
                   $canvas = $('#canvas');
 
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
 
-              var w = $('#newimage').width();
-              var h = $('#newimage').height();
 
-              //apply new scale to the image
+              //alert(sticker_y);
+
+              var leftside = $("#zoom").css("left");
+              var topside = $("#zoom").css("top");
+              var newleftside = parseInt(leftside);
+              var newtopside = parseInt(topside);
+              alert(d_canvas.width);
+              alert(d_canvas.height);
+
+              //alert("test" +  newtopside);
+
+              //apply new SCALE to the image
               // http://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery
               function matrixToArray(matrix) {
                   return matrix.substr(7, matrix.length - 8).split(', ');
               }
               matrix = matrixToArray($(".polaroid").css("transform"));
-              //alert(matrix[3]);
               var currentScale = matrix[3];
               context.scale(currentScale, currentScale);
 
-              //get rotate value too
-              angle1 = getRotationDegrees($('#newimage'));
-              //alert(angle1);
-              //http://stackoverflow.com/questions/8270612/get-element-moz-transformrotate-value-in-jquery
-              //http://creativejs.com/2012/01/day-10-drawing-rotated-images-into-canvas/
+              //apply new ROTATION to the image
+              angle1 = getRotationDegrees($('.polaroid'));
+              context.rotate(angle1*Math.PI/180);
 
-              // move the origin to 50, 35
-              //context.translate(50, 35);
-
-              // now move across and down half the
-              // width and height of the image (which is 128 x 128)
-              //context.translate(64, 64);
-
-              // rotate around this point
-              //context.rotate(0.5);
-
-              // get current resizable x, y, h and w
-              //set the x and y to the #zoom left and top
-              var zoomLeft = $('#zoom').css("left");
-              var zoomTop = $('#zoom').css("top");
-              alert(zoomLeft);
-
-              context.drawImage(sticker, zoomLeft, zoomTop, w, h);
+              //or get transform-origin context
+              context.drawImage(sticker, newleftside, newtopside, 100, 100);
 
               $sticker.hide();
               //$(this).attr('disabled', 'disabled');
@@ -146,12 +143,12 @@
     <div id="canvas-area" class="page">
 
       <div id="zoom" class="zoomProps" >
-          <div class="polaroid">
+          <div class="polaroid" style="border: 1px solid blue">
               <img src="images/stickers/fox-mask.png" alt="" width="100" height="100" id="newimage"/>
           </div>
       </div>
 
-      <canvas id="canvas" width="300" height="300" ></canvas>
+      <canvas id="canvas"></canvas>
 
       <div class="bottom-bar">
         <button class="btn btn-default pick-from-lib-btn pull-left">New</button>

@@ -18,6 +18,7 @@ $(".sticker-1").click(function(){
     }, 200);
 
     $("#newimage").show();
+    $sticker.show();
     //$('#resizable').show();
     //$( "#sticker" ).resizable();
 

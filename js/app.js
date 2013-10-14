@@ -56,11 +56,11 @@ $(document).ready(function() {
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
-        $("#resizable").hide();
-        $("#resizable").css({
-          width: "150px",
-          height: "150px",
-          top: 0,
+        $("#newimage").hide();
+        $("#newimage").css({
+          width: "100px",
+          height: "100px",
+          top: 10,
           left: 10
         })
         $(".overlay").remove();
