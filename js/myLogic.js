@@ -170,6 +170,7 @@ $(function(){
             var top = $(element).offset().top;
 
             cssOrigin = (-(left) + toX)/scaleFactor +"px "+ (-(top) + toY)/scaleFactor +"px";
+            //alert((-(top) + toY)/scaleFactor);
         })
 
         container.bind("transform", function(event) {

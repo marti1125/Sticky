@@ -83,6 +83,9 @@
           $("#newimage").hide();
 
           $('#save-btn').click(function() {
+
+
+
               $(".overlay").remove();
               $( "#done-panel" ).animate({
                   bottom: "-300"
@@ -101,8 +104,8 @@
               var topside = $("#zoom").css("top");
               var newleftside = parseInt(leftside);
               var newtopside = parseInt(topside);
-              alert(d_canvas.width);
-              alert(d_canvas.height);
+              //alert(d_canvas.width);
+              //alert(d_canvas.height);
 
               //alert("test" +  newtopside);
 
@@ -115,12 +118,27 @@
               var currentScale = matrix[3];
               context.scale(currentScale, currentScale);
 
-              //apply new ROTATION to the image
-              angle1 = getRotationDegrees($('.polaroid'));
-              context.rotate(angle1*Math.PI/180);
+              var newTransformOrigin = $(".polaroid").css("transform-origin");
+              alert(newTransformOrigin);
+              //alert((-(top) + toY)/scaleFactor);
+              //this spits out 2 px values, which I need to separate
+              //var transOrig = parseInt(newTransformOrigin);
+              //alert(transOrig - newleftside);
 
-              //or get transform-origin context
+              //this works to adjust the left side
+              //context.translate(transOrig-newleftside, transOrig)
+
+              //apply new ROTATION to the image
+              //angle1 = getRotationDegrees($('.polaroid'));
+              //context.rotate(angle1*Math.PI/180);
+
+              //or get transform-origin context,
+              //shift the x according to the image's scale size from the origin
               context.drawImage(sticker, newleftside, newtopside, 100, 100);
+
+              //RESETS
+              //FIX ME- reset the scale on the img
+              //$("#zoom").css("transform","scale(2)");
 
               $sticker.hide();
               //$(this).attr('disabled', 'disabled');
