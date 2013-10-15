@@ -116,25 +116,36 @@
               }
               matrix = matrixToArray($(".polaroid").css("transform"));
               var currentScale = matrix[3];
-              context.scale(currentScale, currentScale);
+              //context.scale(currentScale, currentScale);
 
               var newTransformOrigin = $(".polaroid").css("transform-origin");
-              alert(newTransformOrigin);
+              //alert(newTransformOrigin);
               //alert((-(top) + toY)/scaleFactor);
               //this spits out 2 px values, which I need to separate
-              //var transOrig = parseInt(newTransformOrigin);
+              var transOrig = parseInt(newTransformOrigin);
               //alert(transOrig - newleftside);
 
-              //this works to adjust the left side
-              //context.translate(transOrig-newleftside, transOrig)
+              //this works to adjust the left side, move the origin based on the transform origin
+              //context.translate(newleftside-transOrig, 100)
 
               //apply new ROTATION to the image
               //angle1 = getRotationDegrees($('.polaroid'));
               //context.rotate(angle1*Math.PI/180);
 
+              var newWidth = 100 * currentScale;
+              var newHeight = 100 * currentScale;
+
+              //FIX MEneed to calculate a newleftside and newtopside after scaling up to the newwidth and newheight
+              alert(newleftside);
+              alert(newleftside / currentScale);
+              var newnewLeftside = newleftside / currentScale;
+              var newnewTopside = newtopside / currentScale;
+
+              //var newnew = newWidth-newleftside;
+
               //or get transform-origin context,
               //shift the x according to the image's scale size from the origin
-              context.drawImage(sticker, newleftside, newtopside, 100, 100);
+              context.drawImage(sticker, newnewLeftside, newnewTopside, newWidth, newHeight);
 
               //RESETS
               //FIX ME- reset the scale on the img

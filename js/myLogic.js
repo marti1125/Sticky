@@ -171,6 +171,7 @@ $(function(){
 
             cssOrigin = (-(left) + toX)/scaleFactor +"px "+ (-(top) + toY)/scaleFactor +"px";
             //alert((-(top) + toY)/scaleFactor);
+            //add to html in div
         })
 
         container.bind("transform", function(event) {
