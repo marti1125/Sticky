@@ -104,6 +104,16 @@
               var topside = $("#zoom").css("top");
               var newleftside = parseInt(leftside);
               var newtopside = parseInt(topside);
+
+              //alert($("#zoom").css("left")); // this has the left and right, need to apply the new scale to this, and create a new Left
+              //alert($("#zoom").css("top"));
+
+              //alert($(".polaroid").css("left")); // this gets the scale
+              //alert($(".polaroid").css("top"));
+
+              //alert($("#newimage").css("left"));
+              //alert($("#newimage").css("top"));
+
               //alert(d_canvas.width);
               //alert(d_canvas.height);
 
@@ -136,16 +146,21 @@
               var newHeight = 100 * currentScale;
 
               //FIX MEneed to calculate a newleftside and newtopside after scaling up to the newwidth and newheight
-              alert(newleftside);
-              alert(newleftside / currentScale);
-              var newnewLeftside = newleftside / currentScale;
-              var newnewTopside = newtopside / currentScale;
+              //alert(newleftside);
+              //alert(newleftside / currentScale);
+              //var newnewLeftside = newleftside / currentScale;
+              //var newnewTopside = newtopside / currentScale;
 
               //var newnew = newWidth-newleftside;
 
+              var newleftsideside = newleftside + parseInt($(".leftside").html());
+              var newtopsideside = newtopside + parseInt($(".topside").html()) - 40;
+              alert('old top side:' + newtopside);
+              alert('new top side:' + newtopsideside);
+
               //or get transform-origin context,
               //shift the x according to the image's scale size from the origin
-              context.drawImage(sticker, newnewLeftside, newnewTopside, newWidth, newHeight);
+              context.drawImage(sticker, newleftsideside, newtopsideside, newWidth, newHeight);
 
               //RESETS
               //FIX ME- reset the scale on the img
@@ -170,6 +185,9 @@
     </div>
 
     <div id="canvas-area" class="page">
+
+      <div class="leftside">leftside</div>
+      <div class="topside">topside</div>
 
       <div id="zoom" class="zoomProps" >
           <div class="polaroid" style="border: 1px solid blue">

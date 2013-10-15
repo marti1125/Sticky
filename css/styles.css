@@ -40,8 +40,34 @@ body {
 
 
 #newimage {
-  border: 1px solid red;
+  //border: 1px solid red;
 }
+
+.zoomProps {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/*  #zoomwrapper {
+  height: 377px;
+  width: 600px;
+  overflow: hidden;
+}*/
+
+.polaroid {
+  //background: #eee;
+  //border: 1px solid #fff;
+  //border: 1px solid #dfdfdf;
+  //border: 1px solid rgba(96,96,96,0.2);
+}
+
+
+
+
+
 
 
 /*canvas page*/

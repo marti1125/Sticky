@@ -1,8 +1,8 @@
 // JavaScript Document
 $(function(){
     var zoom = new ZoomView('#zoom','#zoom :first');
-		var zoom2 = new ZoomView('#zoom2','#zoom2 :first');
-		var zoom3 = new ZoomView('#zoom3','#zoom3 :first');
+    // var zoom2 = new ZoomView('#zoom2','#zoom2 :first');
+    // var zoom3 = new ZoomView('#zoom3','#zoom3 :first');
     });
 
 
@@ -122,7 +122,7 @@ $(function(){
 
         //These two constants specify the minimum and maximum zoom
         var MIN_ZOOM = 1;
-        var MAX_ZOOM = 3;
+        var MAX_ZOOM = 2;
 
         var scaleFactor = 1;
         var previousScaleFactor = 1;
@@ -169,7 +169,13 @@ $(function(){
             var left = $(element).offset().left;
             var top = $(element).offset().top;
 
+            //alert(left);
+            //$(".leftside").html(-(left) + toX)/scaleFactor);
+
             cssOrigin = (-(left) + toX)/scaleFactor +"px "+ (-(top) + toY)/scaleFactor +"px";
+
+
+
             //alert((-(top) + toY)/scaleFactor);
             //add to html in div
         })
@@ -200,7 +206,13 @@ $(function(){
 
         function transform(e) {
             //We're going to scale the X and Y coordinates by the same amount
-            var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +") rotateZ("+ e.rotation +"deg)";
+            //var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +") rotateZ("+ e.rotation +"deg)";
+            var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +")";
+
+            var p = $( ".polaroid" );
+            var position = p.position();
+            $( ".leftside" ).text( position.left );
+            $( ".topside" ).text( position.top );
 
             element.css({
                 webkitTransform: cssScale,
