@@ -97,27 +97,10 @@
               var sticker_x = $sticker.offset().left - $canvas.offset().left,
                   sticker_y = $sticker.offset().top - $canvas.offset().top;
 
-
-              //alert(sticker_y);
-
               var leftside = $("#zoom").css("left");
               var topside = $("#zoom").css("top");
               var newleftside = parseInt(leftside);
               var newtopside = parseInt(topside);
-
-              //alert($("#zoom").css("left")); // this has the left and right, need to apply the new scale to this, and create a new Left
-              //alert($("#zoom").css("top"));
-
-              //alert($(".polaroid").css("left")); // this gets the scale
-              //alert($(".polaroid").css("top"));
-
-              //alert($("#newimage").css("left"));
-              //alert($("#newimage").css("top"));
-
-              //alert(d_canvas.width);
-              //alert(d_canvas.height);
-
-              //alert("test" +  newtopside);
 
               //apply new SCALE to the image
               // http://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery
@@ -129,34 +112,24 @@
               //context.scale(currentScale, currentScale);
 
               var newTransformOrigin = $(".polaroid").css("transform-origin");
-              //alert(newTransformOrigin);
-              //alert((-(top) + toY)/scaleFactor);
               //this spits out 2 px values, which I need to separate
               var transOrig = parseInt(newTransformOrigin);
-              //alert(transOrig - newleftside);
-
-              //this works to adjust the left side, move the origin based on the transform origin
-              //context.translate(newleftside-transOrig, 100)
-
-              //apply new ROTATION to the image
-              //angle1 = getRotationDegrees($('.polaroid'));
-              //context.rotate(angle1*Math.PI/180);
 
               var newWidth = 100 * currentScale;
               var newHeight = 100 * currentScale;
 
-              //FIX MEneed to calculate a newleftside and newtopside after scaling up to the newwidth and newheight
-              //alert(newleftside);
-              //alert(newleftside / currentScale);
-              //var newnewLeftside = newleftside / currentScale;
-              //var newnewTopside = newtopside / currentScale;
-
-              //var newnew = newWidth-newleftside;
-
               var newleftsideside = newleftside + parseInt($(".leftside").html());
               var newtopsideside = newtopside + parseInt($(".topside").html()) - 40;
-              alert('old top side:' + newtopside);
-              alert('new top side:' + newtopsideside);
+
+              var xOffset = newleftsideside - newWidth / -2;
+              var yOffset = newtopsideside - newHeight / -2;
+              //alert(xOffset); make smaller
+              alert(newleftsideside);
+
+              //apply new ROTATION to the image
+              angle1 = getRotationDegrees($('.polaroid'));
+              alert(jQuery.type(angle1));
+              context.rotate(angle1);
 
               //or get transform-origin context,
               //shift the x according to the image's scale size from the origin
@@ -177,6 +150,9 @@
 
 <body>
 
+    <div class="leftside">leftside</div>
+    <div class="topside">topside</div>
+
     <div id="intro-screen" class="page">
       <div class="main-text">
             <h1>Sticky</h1>
@@ -185,9 +161,6 @@
     </div>
 
     <div id="canvas-area" class="page">
-
-      <div class="leftside">leftside</div>
-      <div class="topside">topside</div>
 
       <div id="zoom" class="zoomProps" >
           <div class="polaroid" style="border: 1px solid blue">

@@ -206,8 +206,8 @@ $(function(){
 
         function transform(e) {
             //We're going to scale the X and Y coordinates by the same amount
-            //var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +") rotateZ("+ e.rotation +"deg)";
-            var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +")";
+            var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +") rotateZ("+ e.rotation +"deg)";
+            //var cssScale = "scaleX("+ scaleFactor +") scaleY("+ scaleFactor +")";
 
             var p = $( ".polaroid" );
             var position = p.position();
