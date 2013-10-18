@@ -81,11 +81,12 @@
           var currentScale;
           var newleftsideside;
           var newtopsideside;
+          var newWidth;
+          var newHeight;
 
           $("#newimage").hide();
 
           $('#save-btn').click(function() {
-
 
               $(".overlay").remove();
               $( "#done-panel" ).animate({
@@ -102,70 +103,36 @@
               var topside = $("#zoom").css("top");
               var newleftside = parseInt(leftside);
               var newtopside = parseInt(topside);
+              var attr = $('.polaroid').attr('style');
 
-              //apply new SCALE to the image
-              // http://stackoverflow.com/questions/5968227/get-the-value-of-webkit-transform-of-an-element-with-jquery
-              function matrixToArray(matrix) {
-                  return matrix.substr(7, matrix.length - 8).split(', ');
-              }
-              matrix = matrixToArray($(".polaroid").css("transform"));
-
-              //alert(jQuery.type(currentScale))
-
-              // if there is no scaling on the sticker from the default
-              if(! currentScale){
-                 // your code here.
-                 currentScale = 1;
-                 //alert(currentScale);
-               } else {
-                 currentScale = matrix[3];
-               }
-
-              //context.scale(currentScale, currentScale);
-
-              //var newTransformOrigin = $(".polaroid").css("transform-origin");
-              //this spits out 2 px values, which I need to separate
-              //var transOrig = parseInt(newTransformOrigin);
-
-              var newWidth = 100 * currentScale;
-              var newHeight = 100 * currentScale;
-              alert(newWidth);
-              alert(newHeight);
-
-              if (newWidth == 100) {
-                //not scaled
-                newleftsideside = parseInt(sticker_x);
-                newtopsideside = parseInt(sticker_y);
-
-              } else {
+              if (typeof attr !== 'undefined' && attr !== false) {
+                alert("has style attr");
                 //scaled
+                function matrixToArray(matrix) {
+                    return matrix.substr(7, matrix.length - 8).split(', ');
+                }
+                matrix = matrixToArray($(".polaroid").css("transform"));
+                currentScale = matrix[3];
+                newWidth = 100 * currentScale;
+                newHeight = 100 * currentScale;
                 newleftsideside = newleftside + parseInt($(".leftside").html());
                 newtopsideside = newtopside + parseInt($(".topside").html());
+                context.drawImage(sticker, newleftsideside, newtopsideside, newWidth, newHeight);
+                $sticker.hide();
               }
 
-              alert(newleftsideside);
-              alert(newtopsideside);
+              else {
+                alert("does not have style attr");
+                currentScale = 1;
+                newWidth = 100 * currentScale;
+                newHeight = 100 * currentScale;
+                newleftsideside = parseInt(sticker_x);
+                newtopsideside = parseInt(sticker_y);
+                context.drawImage(sticker, newleftsideside, newtopsideside, newWidth, newHeight);
+                $sticker.hide();
+              }
 
-              //var xOffset = newleftsideside - newWidth / -2;
-              //var yOffset = newtopsideside - newHeight / -2;
-              //alert(xOffset); make smaller
-              //alert(newleftsideside);
 
-              //apply new ROTATION to the image
-              //angle1 = getRotationDegrees($('.polaroid'));
-              //alert(jQuery.type(angle1));
-              //context.rotate(angle1);
-
-              //or get transform-origin context,
-              //shift the x according to the image's scale size from the origin
-              context.drawImage(sticker, newleftsideside, newtopsideside, newWidth, newHeight);
-
-              //RESETS
-              //FIX ME- reset the scale on the img
-              //$("#zoom").css("transform","scale(2)");
-
-              $sticker.hide();
-              //$(this).attr('disabled', 'disabled');
           });
 
       });
