@@ -86,7 +86,7 @@
 
           $("#newimage").hide();
 
-          $('#save-btn').click(function() {
+          $('.btn-place').click(function() {
 
               $(".overlay").remove();
               $( "#done-panel" ).animate({
@@ -106,7 +106,7 @@
               var attr = $('.polaroid').attr('style');
 
               if (typeof attr !== 'undefined' && attr !== false) {
-                alert("has style attr");
+                //alert("has style attr");
                 //scaled
                 function matrixToArray(matrix) {
                     return matrix.substr(7, matrix.length - 8).split(', ');
@@ -122,7 +122,7 @@
               }
 
               else {
-                alert("does not have style attr");
+                //alert("does not have style attr");
                 currentScale = 1;
                 newWidth = 100 * currentScale;
                 newHeight = 100 * currentScale;
@@ -163,9 +163,11 @@
       <canvas id="canvas"></canvas>
 
       <div class="topbarslidedown">
-        <button class="btn btn-default pull-left btn-place">&#x2714;</button>
-        Place the sticker!
-        <button class="btn btn-default pull-right btn-remove">&#x2718;</button>
+        <div class="row">
+            <div class="col-xs-4 text-center"><button class="btn btn-default pull-left btn-place">&#x2714;</button></div>
+            <div class="col-xs-4 text-center">Place the sticker!</div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default pull-right btn-remove">&#x2718;</button></div>
+        </div>
       </div>
 
       <div class="bottom-bar">
