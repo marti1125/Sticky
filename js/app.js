@@ -43,7 +43,8 @@ $(document).ready(function() {
       });
 
       $(".done-btn").click(function(){
-        $("#canvas-area").append('<div class="overlay" style="position: absolute; top: 0; left: 0; background: rgba(0,0,0,0.5); width: 100%; height: 100%"></div');
+        $("#canvas-area").append('<div class="overlay" style="position: absolute; top: 0; left: 0; background: rgba(0,0,0,0.5); width: 100%; height: 100%; z-index: 8888;"></div');
+        $( "#done-panel" ).css("z-index","9999");
         $( "#done-panel" ).animate({
             bottom: "-20"
           }, 200);

@@ -13,13 +13,17 @@
 $(".btn-place").click(function(){
     $(".topbarslidedown").animate({
       opacity: 0
-    }, 1000);
+    }, 100);
+
+    $(".topbarslidedown").css("z-index","-9999");
+
 });
 
 $(".btn-remove").click(function(){
     $(".topbarslidedown").animate({
       opacity: 0
-    }, 1000);
+    }, 100);
+    $(".topbarslidedown").css("z-index","-9999");
 });
 
 
@@ -39,8 +43,10 @@ $(".sticker-1").click(function(){
 
     // show tool bar with Done/Checkmark and Undo/Delete at the top
     $(".topbarslidedown").animate({
-      opacity: 1
+      opacity: 1,
     }, 1000);
+
+    $(".topbarslidedown").css("z-index","9999");
 
 
 

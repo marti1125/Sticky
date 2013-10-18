@@ -78,7 +78,9 @@
           d_canvas.height = 520;
           d_canvas.style.width  = '324px';
           d_canvas.style.height = '520px';
-
+          var currentScale;
+          var newleftsideside;
+          var newtopsideside;
 
           $("#newimage").hide();
 
@@ -107,18 +109,42 @@
                   return matrix.substr(7, matrix.length - 8).split(', ');
               }
               matrix = matrixToArray($(".polaroid").css("transform"));
-              var currentScale = matrix[3];
+
+              //alert(jQuery.type(currentScale))
+
+              // if there is no scaling on the sticker from the default
+              if(! currentScale){
+                 // your code here.
+                 currentScale = 1;
+                 //alert(currentScale);
+               } else {
+                 currentScale = matrix[3];
+               }
+
               //context.scale(currentScale, currentScale);
 
-              var newTransformOrigin = $(".polaroid").css("transform-origin");
+              //var newTransformOrigin = $(".polaroid").css("transform-origin");
               //this spits out 2 px values, which I need to separate
-              var transOrig = parseInt(newTransformOrigin);
+              //var transOrig = parseInt(newTransformOrigin);
 
               var newWidth = 100 * currentScale;
               var newHeight = 100 * currentScale;
+              alert(newWidth);
+              alert(newHeight);
 
-              var newleftsideside = newleftside + parseInt($(".leftside").html());
-              var newtopsideside = newtopside + parseInt($(".topside").html());
+              if (newWidth == 100) {
+                //not scaled
+                newleftsideside = parseInt(sticker_x);
+                newtopsideside = parseInt(sticker_y);
+
+              } else {
+                //scaled
+                newleftsideside = newleftside + parseInt($(".leftside").html());
+                newtopsideside = newtopside + parseInt($(".topside").html());
+              }
+
+              alert(newleftsideside);
+              alert(newtopsideside);
 
               //var xOffset = newleftsideside - newWidth / -2;
               //var yOffset = newtopsideside - newHeight / -2;
