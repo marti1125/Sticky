@@ -74,16 +74,15 @@
           var context = d_canvas.getContext('2d');
           var sticker = document.getElementById('newimage');
 
-          d_canvas.width  = 320;
+          d_canvas.width  = 324;
           d_canvas.height = 520;
-          d_canvas.style.width  = '320px';
+          d_canvas.style.width  = '324px';
           d_canvas.style.height = '520px';
 
 
           $("#newimage").hide();
 
           $('#save-btn').click(function() {
-
 
 
               $(".overlay").remove();
@@ -119,17 +118,17 @@
               var newHeight = 100 * currentScale;
 
               var newleftsideside = newleftside + parseInt($(".leftside").html());
-              var newtopsideside = newtopside + parseInt($(".topside").html()) - 40;
+              var newtopsideside = newtopside + parseInt($(".topside").html());
 
-              var xOffset = newleftsideside - newWidth / -2;
-              var yOffset = newtopsideside - newHeight / -2;
+              //var xOffset = newleftsideside - newWidth / -2;
+              //var yOffset = newtopsideside - newHeight / -2;
               //alert(xOffset); make smaller
-              alert(newleftsideside);
+              //alert(newleftsideside);
 
               //apply new ROTATION to the image
-              angle1 = getRotationDegrees($('.polaroid'));
-              alert(jQuery.type(angle1));
-              context.rotate(angle1);
+              //angle1 = getRotationDegrees($('.polaroid'));
+              //alert(jQuery.type(angle1));
+              //context.rotate(angle1);
 
               //or get transform-origin context,
               //shift the x according to the image's scale size from the origin
@@ -163,17 +162,25 @@
     <div id="canvas-area" class="page">
 
       <div id="zoom" class="zoomProps" >
-          <div class="polaroid" style="border: 1px solid blue">
+          <div class="polaroid">
               <img src="images/stickers/fox-mask.png" alt="" width="100" height="100" id="newimage"/>
           </div>
       </div>
 
       <canvas id="canvas"></canvas>
 
+      <div class="topbarslidedown">
+        <button class="btn btn-default pull-left btn-place">&#x2714;</button>
+        Place the sticker!
+        <button class="btn btn-default pull-right btn-remove">&#x2718;</button>
+      </div>
+
       <div class="bottom-bar">
-        <button class="btn btn-default pick-from-lib-btn pull-left">New</button>
-        <button class="btn btn-primary stickers-btn pull-left">Stickers</button>
-        <button class="btn btn-default done-btn pull-right">Done</button>
+        <div class="row">
+            <div class="col-xs-4 text-center"><button class="btn btn-default pick-from-lib-btn">New</button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-primary stickers-btn">Stickers</button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default done-btn">Done</button></div>
+        </div>
       </div>
     </div>
 
@@ -183,7 +190,7 @@
     <div id="done-panel" class="panel panel-default">
       <div class="panel-body">
         <button type="button" class="btn btn-primary btn-lg btn-block" id="save-btn" >Save to Gallery</button>
-        <button type="button" class="btn btn-default btn-lg btn-block" id="btn-clear">Clear</button>
+        <button type="button" class="btn btn-default btn-lg btn-block" id="btn-clear">Clear All</button>
         <button type="button" class="btn btn-default btn-lg btn-block" id="btn-cancel" href="">Cancel</button>
       </div>
     </div>
@@ -191,7 +198,8 @@
     <div id="stickers-screen" class="page">
       <!-- stickers go here and slideup/down-->
       <div class="top-bar">
-        <button class="btn btn-default close-btn pull-right">Close</button>
+        Choose a sticker!
+        <button class="btn btn-primary close-btn pull-right">Close</button>
       </div>
       <div class="main-section">
         <div class="row">
@@ -201,37 +209,33 @@
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="sticker">
+            <div class="sticker sticker-2">
               <img src="images/stickers/sunglasses.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="sticker">
-              sticker 3
+            <div class="sticker sticker-3">
+              <img src="images/stickers/mustache.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-4">
-            <div class="sticker">
-              sticker 1
+            <div class="sticker sticker-4">
+              <img src="images/stickers/hat.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="sticker">
-              sticker 2
+            <div class="sticker sticker-5">
+              <img src="images/stickers/nose.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="sticker">
-              sticker 3
+            <div class="sticker sticker-6">
+              <img src="images/stickers/tail.png" style="width: 100%; height: 100%;" />
             </div>
           </div>
         </div>
-      </div>
-      <div class="bottom-bar">
-        <a class="btn-left"><</a>
-        <a class="btn-right">></a>
       </div>
     </div>
 
