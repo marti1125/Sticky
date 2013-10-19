@@ -22,24 +22,75 @@ body {
   left: 0;
 }
 
+.btn-green {
+  background: #16a085;
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+}
+
+.btn-green:hover, .btn-green:active {
+  background: #5da97d;
+}
+
+.middletext {
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.btn-red {
+  background: #e74c3c;
+  color: #fff;
+  height: 44px;
+  width: 44px;
+  border: none;
+}
+
 .top-bar {
   background: #363636;
   position: absolute;
   top: 0;
+  height: 50px;
   width: 100%;
-  padding: 4% 4%;
-  height: 11%;
+  //padding: 6px;
+  //height: 11%;
+}
+
+.top-bar h2 {
+  font-size: 18px;
+  color: #FFF;
+  float: left;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.top-bar img {
+  height: 50%;
+  width: 50%;
+}
+
+.top-bar .btn {
+  height: 50px;
+  background: none;
+  border: none;
+  font-weight: bold;
 }
 
 .topbarslidedown {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 4% 4%;
+  padding: 3px 0px 0px;
+  height: 50px;
   background: #363636;
   opacity: 0;
   z-index: -9999;
   color: #fff;
+}
+
+.topbarslidedown .row {
+  padding-top: 0px;
 }
 
 .bottom-bar {
@@ -47,19 +98,49 @@ body {
   background: #363636;
   bottom: 0px;
   width: 100%;
-  height: auto;
-  padding: 0px 6px 6px;
+  height: 50px;
+  //padding: 0px 6px 6px;
 }
+
+.bottom-bar .row {
+  padding-top: 0px;
+}
+
+.bottom-bar .btn {
+  height: 50px;
+  background: none;
+  border-color: none;
+  border: none;
+}
+
+.bottom-bar .btn:active {
+  background: #000;
+  border-color: none;
+  border-radius: 0px;
+}
+
+.bottom-bar img {
+  width: 50%;
+  height: 50%;
+}
+
+.instructions {
+  color: #fff;
+  position: absolute;
+  bottom: 80px;
+}
+
 
 #intro-screen {
   z-index: 3;
   width: 100%;
   height: 100%;
-  background: #ccc;
+  background: rgba(0,0,0,0.5);
 }
 
 .main-text {
-  margin: 30% auto;
+  color: #fff;
+  margin: 40% auto;
   text-align: center;
 }
 
@@ -109,10 +190,10 @@ body {
 }
 
 #canvas {
-  border:1px solid #000;
+  //border:1px solid #000;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.1);
+  background: rgba(255,255,255,1);
   //margin: 4%;
 }
 #background {

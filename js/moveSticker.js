@@ -14,9 +14,7 @@ $(".btn-place").click(function(){
     $(".topbarslidedown").animate({
       opacity: 0
     }, 100);
-
     $(".topbarslidedown").css("z-index","-9999");
-
 });
 
 $(".btn-remove").click(function(){
@@ -29,29 +27,16 @@ $(".btn-remove").click(function(){
 
 
 $(".sticker-1").click(function(){
-    //alert("add sticker");
-    //move down the modal
     $("#stickers-screen").animate({
       top: 1000
     }, 200);
-
     $("#newimage").attr("src","images/stickers/fox-mask.png");
-
     $("#newimage").show();
-    //$sticker.show();
-
     // show tool bar with Done/Checkmark and Undo/Delete at the top
     $(".topbarslidedown").animate({
       opacity: 1,
     }, 1);
-
     $(".topbarslidedown").css("z-index","9999");
-
-
-
-    //$('#resizable').show();
-    //$( "#sticker" ).resizable();
-
 
 });
 
@@ -61,7 +46,11 @@ $(".sticker-2").click(function(){
     }, 200);
     $("#newimage").attr("src","images/stickers/sunglasses.png");
     $("#newimage").show();
-    //$sticker.show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
 
 });
 
@@ -71,7 +60,11 @@ $(".sticker-3").click(function(){
     }, 200);
     $("#newimage").attr("src","images/stickers/mustache.png");
     $("#newimage").show();
-    //$sticker.show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
 
 });
 
@@ -81,7 +74,11 @@ $(".sticker-4").click(function(){
     }, 200);
     $("#newimage").attr("src","images/stickers/hat.png");
     $("#newimage").show();
-    //$sticker.show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
 
 });
 
@@ -91,7 +88,11 @@ $(".sticker-5").click(function(){
     }, 200);
     $("#newimage").attr("src","images/stickers/nose.png");
     $("#newimage").show();
-    //$sticker.show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
 
 });
 
@@ -101,7 +102,11 @@ $(".sticker-6").click(function(){
     }, 200);
     $("#newimage").attr("src","images/stickers/tail.png");
     $("#newimage").show();
-    //$sticker.show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
 
 });
 

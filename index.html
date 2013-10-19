@@ -148,7 +148,13 @@
     <div id="intro-screen" class="page">
       <div class="main-text">
             <h1>Sticky</h1>
-            <p>Tap to start!</p>
+      </div>
+      <div class="instructions">
+        <div class="row">
+            <div class="col-xs-4 text-center">Create a new canvas here.</div>
+            <div class="col-xs-4 text-center">Add a sticker here.</div>
+            <div class="col-xs-4 text-center">Tap here to finish!</div>
+        </div>
       </div>
     </div>
 
@@ -164,17 +170,17 @@
 
       <div class="topbarslidedown">
         <div class="row">
-            <div class="col-xs-4 text-center"><button class="btn btn-default pull-left btn-place">&#x2714;</button></div>
-            <div class="col-xs-4 text-center">Place the sticker!</div>
-            <div class="col-xs-4 text-center"><button class="btn btn-default pull-right btn-remove">&#x2718;</button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default btn-remove btn-red">&#x2718;</button></div>
+            <div class="col-xs-4 text-center middletext">Place it!</div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default btn-place btn-green">&#x2714;</button></div>
         </div>
       </div>
 
       <div class="bottom-bar">
         <div class="row">
-            <div class="col-xs-4 text-center"><button class="btn btn-default pick-from-lib-btn">New</button></div>
-            <div class="col-xs-4 text-center"><button class="btn btn-primary stickers-btn">Stickers</button></div>
-            <div class="col-xs-4 text-center"><button class="btn btn-default done-btn">Done</button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default pick-from-lib-btn"><img src="images/buttons/plus-sign.png"></button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-primary stickers-btn"><img src="images/buttons/btn-sticker.png"></button></div>
+            <div class="col-xs-4 text-center"><button class="btn btn-default done-btn"><img src="images/buttons/btn-check.png"></button></div>
         </div>
       </div>
     </div>
@@ -193,8 +199,8 @@
     <div id="stickers-screen" class="page">
       <!-- stickers go here and slideup/down-->
       <div class="top-bar">
-        Choose a sticker!
-        <button class="btn btn-primary close-btn pull-right">Close</button>
+        <h2>Choose a sticker!</h2>
+        <button class="btn btn-primary close-btn pull-right"><img src="images/buttons/btn-down.png"></button>
       </div>
       <div class="main-section">
         <div class="row">
