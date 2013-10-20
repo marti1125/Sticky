@@ -1,3 +1,24 @@
+@font-face {
+    font-family: FiraSansOT-Bold;
+    src: url('../../fonts/FiraSansOT-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: FiraSansOT-Medium;
+    src: url('../../fonts/FiraSansOT-Medium.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: FiraSansOT-Regular;
+    src: url('../../fonts/FiraSansOT-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   overflow: hidden;
 }
@@ -23,7 +44,7 @@ body {
 }
 
 .btn-green {
-  background: #16a085;
+  background: #11a8ab;
   color: #fff;
   border: none;
   width: 44px;
@@ -31,7 +52,7 @@ body {
 }
 
 .btn-green:hover, .btn-green:active {
-  background: #5da97d;
+  background: #209597;
 }
 
 .middletext {
@@ -40,15 +61,19 @@ body {
 }
 
 .btn-red {
-  background: #e74c3c;
+  background: #e64c65;
   color: #fff;
   height: 44px;
   width: 44px;
   border: none;
 }
 
+.btn-red:hover, .btn-red:active {
+  background: #cc324b;
+}
+
 .top-bar {
-  background: #363636;
+  background: #394264;
   position: absolute;
   top: 0;
   height: 50px;
@@ -81,9 +106,9 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 3px 0px 0px;
-  height: 50px;
-  background: #363636;
+  padding: 13px 0px 0px;
+  height: 70px;
+  background: #394264;
   opacity: 0;
   z-index: -9999;
   color: #fff;
@@ -95,7 +120,7 @@ body {
 
 .bottom-bar {
   position: absolute;
-  background: #363636;
+  background: #394264;
   bottom: 0px;
   width: 100%;
   height: 50px;
@@ -114,7 +139,7 @@ body {
 }
 
 .bottom-bar .btn:active {
-  background: #000;
+  background: #32374b;
   border-color: none;
   border-radius: 0px;
 }
@@ -135,7 +160,7 @@ body {
   z-index: 3;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(35,37,43,0.5);
 }
 
 .main-text {
@@ -222,6 +247,17 @@ height: 100%;
   bottom: -300px;
   z-index: 9999;
   font-family: sans-serif;
+  background: #394264;
+  border: none;
+}
+
+#done-panel button {
+  border-radius: 4px;
+  border: none;
+}
+
+#done-panel #save-btn {
+  background: #3468af;
 }
 
 #bottom-bar .row {
@@ -233,7 +269,7 @@ height: 100%;
 
 
 #stickers-screen {
-  background: #f1f1f1;
+  background: #50597b;
   width: 100%;
   height: 100%;
   top: 1000px;

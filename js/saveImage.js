@@ -53,7 +53,7 @@ function addDrawing() {
       var photofile   = new Blob( [ asArray.buffer ], {type: "image/png"} );
 
       //problem here...
-      var mainphoto = pictures.addNamed(photofile, "DCIM/MISC/my-drawings" + count + ".png");
+      var mainphoto = pictures.addNamed(photofile, "DCIM/FFOS-Sticky-App-Imgs/my-drawings" + count + ".png");
       //alert("test");
 
 
