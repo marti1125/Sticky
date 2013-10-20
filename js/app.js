@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 
       $("#btn-clear").click(function(){
-
+        navigator.vibrate(100);
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -72,6 +72,14 @@ $(document).ready(function() {
       });
 
       $("#btn-cancel").click(function(){
+        $(".overlay").remove();
+        $( "#done-panel" ).animate({
+            bottom: "-300"
+        }, 200);
+      });
+
+      $("#save-btn").click(function(){
+        navigator.vibrate(200);
         $(".overlay").remove();
         $( "#done-panel" ).animate({
             bottom: "-300"
