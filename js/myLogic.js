@@ -122,7 +122,7 @@ $(function(){
 
         //These two constants specify the minimum and maximum zoom
         var MIN_ZOOM = 1;
-        var MAX_ZOOM = 2;
+        var MAX_ZOOM = 3;
 
         var scaleFactor = 1;
         var previousScaleFactor = 1;

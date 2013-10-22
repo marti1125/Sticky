@@ -27,9 +27,9 @@
       var sticker = document.getElementById('newimage');
 
       d_canvas.width  = 324;
-      d_canvas.height = 520;
+      d_canvas.height = 486;
       d_canvas.style.width  = '324px';
-      d_canvas.style.height = '520px';
+      d_canvas.style.height = '486px';
       var currentScale;
       var newleftsideside;
       var newtopsideside;

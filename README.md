@@ -2,6 +2,10 @@
 
 This is a simple sticker app.
 
+## How to contribute stickers!
+
+If you want to submit new stickers, create a 300x300 .png image with a transparent background.  That will be the sticker.  You can then submit a Pull Request to this repo.  We will then review it and possibly add it to the sticker panel.
+
 ## Thanks to
 
 * https://github.com/godswearhats/jquery-ui-rotatable
