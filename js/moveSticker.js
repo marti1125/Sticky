@@ -110,5 +110,47 @@ $(".sticker-6").click(function(){
 
 });
 
+$(".sticker-7").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/bandana.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
+$(".sticker-8").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/eyebrows.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
+$(".sticker-9").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/eyepatch.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
 
 
