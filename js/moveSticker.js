@@ -86,7 +86,7 @@ $(".sticker-5").click(function(){
     $("#stickers-screen").animate({
       top: 1000
     }, 200);
-    $("#newimage").attr("src","images/stickers/nose.png");
+    $("#newimage").attr("src","images/stickers/scarf.png");
     $("#newimage").show();
     // show tool bar with Done/Checkmark and Undo/Delete at the top
     $(".topbarslidedown").animate({
@@ -143,6 +143,48 @@ $(".sticker-9").click(function(){
       top: 1000
     }, 200);
     $("#newimage").attr("src","images/stickers/eyepatch.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
+$(".sticker-10").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/beret.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
+$(".sticker-11").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/earring.png");
+    $("#newimage").show();
+    // show tool bar with Done/Checkmark and Undo/Delete at the top
+    $(".topbarslidedown").animate({
+      opacity: 1,
+    }, 1);
+    $(".topbarslidedown").css("z-index","9999");
+
+});
+
+$(".sticker-12").click(function(){
+    $("#stickers-screen").animate({
+      top: 1000
+    }, 200);
+    $("#newimage").attr("src","images/stickers/bowtie.png");
     $("#newimage").show();
     // show tool bar with Done/Checkmark and Undo/Delete at the top
     $(".topbarslidedown").animate({
