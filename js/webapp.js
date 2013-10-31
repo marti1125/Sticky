@@ -25,7 +25,7 @@
                 name: "pick",
                 data: {
                     type: ["image/png", "image/jpg", "image/jpeg"]
- }
+                }
             });
 
             // add the image to the HTML canvas and move up that page
@@ -53,8 +53,8 @@
                 $("#canvas-area").css('z-index',"3");
             };
 
-            pick.onerror = function () { 
-                alert("Can't view the image!");
+            pick.onerror = function () {
+                
             };
         }
     }
@@ -87,7 +87,7 @@
                 name: "record" // Possibly capture in future versions
             });
 
-            rec.onsuccess = function () { 
+            rec.onsuccess = function () {
                 var img = document.createElement("img");
                 img.src = window.URL.createObjectURL(this.result.blob);
                 var imagePresenter = document.querySelector("#image-presenter");
@@ -95,7 +95,7 @@
                 imagePresenter.style.display = "block";
             };
 
-            rec.onerror = function () { 
+            rec.onerror = function () {
                 alert("No taken picture returned");
             };
         }
