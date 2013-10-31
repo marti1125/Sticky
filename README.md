@@ -4,7 +4,7 @@ This is a simple sticker app.  Take a photo of yourself or a friend and then add
 
 ## How to contribute new stickers!
 
-If you want to submit new stickers, create a 300x300 png image with a transparent background.  That will be the sticker.  You can then submit a Pull Request.  We will then review it and possibly add it to the sticker panel.
+If you want to submit new stickers, create a 300x300 png image with a transparent background.  That will be the sticker.  You can then submit a Pull Request.  We will then review it and possibly add it to the sticker panel.  OR you can create a new Issue, and attach the sticker to that.
 
 ## Thanks to
 
